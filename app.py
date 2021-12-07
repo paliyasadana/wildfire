@@ -62,18 +62,12 @@ if uploaded_file is not None:
     st.pyplot()
     #plt.imshow(output_mask)
    
-    st.sidebar.markdown("** CO2 Emission Calculator **")
-    forest_type = st.sidebar.selectbox("Please select the type of forest: ", ('Tropical Forest', 'Temperate Forest', 'Boreal Forest', 'Shrublands', 'Grasslands'))
     resolution = st.sidebar.text_input("Please enter the image resolution value: ", '10')
     
-    area, biomass_burnt, equal_days = burn_area(output_mask = output_mask, resolution = float(resolution), forest_type = forest_type)
+    area = burn_area(output_mask = output_mask, resolution = float(resolution))
     st.sidebar.markdown('The total burnt area is:')
     st.sidebar.text("{0:.2f}".format(area/1e6) + ' km^2')
-    st.sidebar.markdown('The total CO2 emitted is:')
-    st.sidebar.text("{0:.2f}".format(biomass_burnt/1e6) + ' tons')
-    st.sidebar.markdown("This is equivalent to:")
-    st.sidebar.text("{0:.2f}".format(equal_days) + " days of Califorlia's daily electricity power emission")
-
+   
 
 
 
