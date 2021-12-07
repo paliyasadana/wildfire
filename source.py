@@ -63,30 +63,13 @@ def load_trained_model(model_location):
     session = K.get_session()
     return loaded_model, session
 
-def burn_area(output_mask, resolution, forest_type):
+def burn_area(output_mask, resolution,):
   # reference: https://www.geosci-model-dev.net/4/625/2011/gmd-4-625-2011.pdf
   # unit in g/m^2
-  biomass_type = {'Tropical Forest': 28076,
-                   'Temperate Forest':10492,
-                   'Boreal Forest': 25000,
-                   'Shrublands': 5705,
-                   'Grasslands': 976
-                  }
   area = np.count_nonzero(output_mask) * resolution**2
-  # Ei = A(x,t)×B(x)×FB×efi, 
-  # A: area, 
-  # B(biomass_type), 
-  # FB:Burning fraction, assume 1 here
-  # efi: mass of biomass burnt, for CO2, it averages 1624 g/kg. 
-  biomass_burnt =  area * biomass_type[forest_type]/1e3 * 1624 #unit in g
+ 
   
-  # Califorlia annual CO2 emision from power generating, 424 million metric tons of CO2 per year
-  # Reference: https://ww3.arb.ca.gov/cc/inventory/pubs/reports/2000_2016/ghg_inventory_trends_00-16.pdf
-  ca_co2_daily = 4.24e8 / 365.
-  
-  equal_days = biomass_burnt /1e6 / ca_co2_daily
   
   print('The total burnt area is:', "{:.4e}".format(area/1e6), 'km^2 \n')
-  print('The total CO2 emitted is:', "{:.4e}".format(biomass_burnt/1e6), 'tons \n')
-  print("Which equivalent to:", "{:.4e}".format(equal_days), " days of Califorlia's  daily electricity power emission \n")
-  return area, biomass_burnt, equal_days
+ 
+  return area
