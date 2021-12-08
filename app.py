@@ -60,6 +60,4 @@ if uploaded_file is not None:
     st.markdown("** The Predicted Mask is **: ")
     plt.imshow(output_mask)
     st.pyplot()
-   
-
-@st.cache(allow_output_mutation=True, max_entries=10, ttl=3600)
+  
