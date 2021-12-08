@@ -63,6 +63,3 @@ def load_trained_model(model_location):
     session = K.get_session()
     return loaded_model, session
 
-
- 
-  return area
