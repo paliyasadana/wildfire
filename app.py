@@ -62,5 +62,6 @@ if uploaded_file is not None:
     st.pyplot()
    
 
-
+@st.cache(allow_output_mutation=True, max_entries=10, ttl=3600)
+def recommendations(title):
 
