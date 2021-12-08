@@ -60,13 +60,6 @@ if uploaded_file is not None:
     st.markdown("** The Predicted Mask is **: ")
     plt.imshow(output_mask)
     st.pyplot()
-    #plt.imshow(output_mask)
-   
-    resolution = st.sidebar.text_input("Please enter the image resolution value: ", '10')
-    
-    area = burn_area(output_mask = output_mask, resolution = float(resolution))
-    st.sidebar.markdown('The total burnt area is:')
-    st.sidebar.text("{0:.2f}".format(area/1e6) + ' km^2')
    
 
 
