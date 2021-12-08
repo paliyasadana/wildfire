@@ -63,13 +63,6 @@ def load_trained_model(model_location):
     session = K.get_session()
     return loaded_model, session
 
-def burn_area(output_mask, resolution,):
-  # reference: https://www.geosci-model-dev.net/4/625/2011/gmd-4-625-2011.pdf
-  # unit in g/m^2
-  area = np.count_nonzero(output_mask) * resolution**2
- 
-  
-  
-  print('The total burnt area is:', "{:.4e}".format(area/1e6), 'km^2 \n')
+
  
   return area
