@@ -21,7 +21,7 @@ K.set_session(session)
 
 
 st.sidebar.markdown('Please upload a raw satellite image')
-uploaded_file = st.sidebar.file_uploader("Upload file")
+uploaded_file = st.sidebar.file_uploader("Upload png file", type=["png"])
 
 
 if uploaded_file is not None:
