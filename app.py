@@ -63,4 +63,3 @@ if uploaded_file is not None:
    
 
 @st.cache(allow_output_mutation=True, max_entries=10, ttl=3600)
-
