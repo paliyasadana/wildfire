@@ -16,7 +16,7 @@ st.title("Wild Fire Detection App")
 
 st.sidebar.markdown("** App Status **")
 
-model, session = load_trained_model("model_temp.h5")
+model, session = load_trained_model("temp_model.h5")
 K.set_session(session)
 
 
